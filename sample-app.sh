@@ -1,9 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
-mkdir tempdir
-mkdir tempdir/templates
-mkdir tempdir/static
+mkdir tempdir || echo "tempdir bestaat al"
+mkdir tempdir/templates || echo "tempdir/templates bestaat al"
+mkdir tempdir/static || echo "tempdir/static bestaat al
 
 cp sample_app.py tempdir/.
 cp -r templates/* tempdir/templates/.
