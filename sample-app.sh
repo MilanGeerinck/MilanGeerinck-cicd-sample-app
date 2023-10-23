@@ -1,9 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-sudo docker stop samplerunning
-sudo docker rm samplerunning
-
 mkdir tempdir || echo "tempdir bestaat al"
 mkdir tempdir/templates || echo "tempdir/templates bestaat al"
 mkdir tempdir/static || echo "tempdir/static bestaat al"
@@ -21,6 +18,9 @@ COPY  sample_app.py /home/myapp/
 EXPOSE 5050
 CMD python /home/myapp/sample_app.py
 _EOF_
+
+docker stop samplerunning
+docker rm samplerunning
 
 cd tempdir || exit
 docker build -t sampleapp .
