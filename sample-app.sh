@@ -19,8 +19,8 @@ EXPOSE 5050
 CMD python /home/myapp/sample_app.py
 _EOF_
 
-docker stop samplerunning
-docker rm samplerunning
+docker stop samplerunning || echo "samplerunning bestaat niet"
+docker rm samplerunning || echo "samplerunning bestaat niet"
 
 cd tempdir || exit
 docker build -t sampleapp .
