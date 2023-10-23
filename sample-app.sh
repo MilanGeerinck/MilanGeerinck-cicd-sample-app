@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+sudo docker stop samplerunning
+sudo docker rm samplerunning
+
 mkdir tempdir || echo "tempdir bestaat al"
 mkdir tempdir/templates || echo "tempdir/templates bestaat al"
 mkdir tempdir/static || echo "tempdir/static bestaat al"
